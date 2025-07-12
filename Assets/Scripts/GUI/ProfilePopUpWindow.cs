@@ -369,7 +369,9 @@ namespace TiltBrush
                         );
                     }
                     string secret = VrAssetService.m_Instance.GenerateDeviceCodeSecret();
+#if UNITY_EDITOR || !UNITY_ANDROID
                     App.OpenURL($"{VrAssetService.m_Instance.IcosaHomePage}/device?appId=openbrush&secret={secret}");
+#endif
                     ShowIcosaLogin();
                     break;
                 case SketchControlsScript.GlobalCommands.AccountInfo:
